@@ -32,4 +32,6 @@ public class CustomerServiceTest {
         boolean result = customerService.createCustomer(fieldMap);
         Assert.assertTrue(result);
     }
+
+
 }

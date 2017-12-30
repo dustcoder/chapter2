@@ -1,6 +1,6 @@
 package org.ren.chapter2.model;
 
-public class Consumer {
+public class Customer {
 
     private long id;
     private String name;

@@ -21,7 +21,7 @@ public class PropsUtil {
      * @Date: 13:51 2017/12/30
      * @param:  * @param 文件名
     */
-    private static Properties loadProps(String fileName){
+    public static Properties loadProps(String fileName){
         Properties props = null;
         InputStream is = null;
         try {
