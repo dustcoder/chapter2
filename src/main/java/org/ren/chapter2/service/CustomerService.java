@@ -1,5 +1,6 @@
 package org.ren.chapter2.service;
 
+import org.ren.chapter2.helper.DatabaseHelper;
 import org.ren.chapter2.model.Customer;
 import org.ren.chapter2.util.PropsUtil;
 import org.slf4j.Logger;
@@ -41,40 +42,39 @@ public class CustomerService {
         return false;
     }
 
+//    public List<Customer> getCustomerList(){
+//        Connection conn = null;
+//        try {
+//            List <Customer> customerList = new ArrayList();
+//            String sql = "select * from customer";
+//            conn = DatabaseHelper.getConnection();
+//            PreparedStatement stat = conn.prepareStatement(sql);
+//            ResultSet rs = stat.executeQuery();
+//            while (rs.next()){
+//                Customer customer = new Customer();
+//                customer.setId(rs.getInt("id"));
+//                customer.setContact(rs.getString("contact"));
+//                customer.setEmail(rs.getString("email"));
+//                customer.setName(rs.getString("name"));
+//                customer.setRemark(rs.getString("remark"));
+//                customer.setTelephone(rs.getString("telephone"));
+//                customerList.add(customer);
+//            }
+//            return customerList;
+//
+//        }catch (SQLException e){
+//            LOGGER.error("execute sql failure",e);
+//        }finally {
+//            DatabaseHelper.closeConnection(conn);
+//
+//        }
+//
+//        return null;
+//    }
+
     public List<Customer> getCustomerList(){
-        Connection conn = null;
-        try {
-            List <Customer> customerList = new ArrayList();
-            String sql = "select * from customer";
-            conn = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            PreparedStatement stat = conn.prepareStatement(sql);
-            ResultSet rs = stat.executeQuery();
-            while (rs.next()){
-                Customer customer = new Customer();
-                customer.setId(rs.getInt("id"));
-                customer.setContact(rs.getString("contact"));
-                customer.setEmail(rs.getString("email"));
-                customer.setName(rs.getString("name"));
-                customer.setRemark(rs.getString("remark"));
-                customer.setTelephone(rs.getString("telephone"));
-                customerList.add(customer);
-            }
-            return customerList;
-
-        }catch (SQLException e){
-            LOGGER.error("execute sql failure",e);
-        }finally {
-            if(conn != null){
-                try {
-                    conn.close();
-                }catch (SQLException e){
-                    LOGGER.error("close connection failure",e);
-                }
-
-            }
-
-        }
-
-        return null;
+        String sql = "SELECT * FROM `customer`";
+        return DatabaseHelper.queryEntityList(Customer.class,sql);
     }
+
 }

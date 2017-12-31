@@ -3,9 +3,11 @@ package org.ren.chapter2.test;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.ren.chapter2.model.Customer;
 import org.ren.chapter2.service.CustomerService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CustomerServiceTest {
@@ -31,6 +33,18 @@ public class CustomerServiceTest {
         fieldMap.put("telephone","13956497935");
         boolean result = customerService.createCustomer(fieldMap);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void getCustomerListTest() throws Exception {
+        List <Customer> customerList = customerService.getCustomerList();
+        Assert.assertEquals(2,customerList.size());
+    }
+
+    @Test
+    public void getl() throws Exception{
+        List <Customer> customerList = customerService.getCustomerList();
+        Assert.assertEquals(2,customerList.size());
     }
 
 
