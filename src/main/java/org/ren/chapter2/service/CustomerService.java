@@ -17,24 +17,24 @@ public class CustomerService {
 
     private  final  static Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
 
-    private  static final String DRIVER;
-    private  static final  String URL;
-    private static final String USERNAME;
-    private static final String PASSWORD;
-
-    static {
-        Properties conf = PropsUtil.loadProps("config.properties");
-        DRIVER = conf.getProperty("jdbc.driver");
-        URL = conf.getProperty("jdbc.url");
-        USERNAME = conf.getProperty("jdbc.username");
-        PASSWORD = conf.getProperty("jdbc.password");
-
-        try {
-            Class.forName(DRIVER);
-        }catch (ClassNotFoundException e){
-            LOGGER.error("can not load jdbc driver",e);
-        }
-    }
+//    private  static final String DRIVER;
+//    private  static final  String URL;
+//    private static final String USERNAME;
+//    private static final String PASSWORD;
+//
+//    static {
+//        Properties conf = PropsUtil.loadProps("config.properties");
+//        DRIVER = conf.getProperty("jdbc.driver");
+//        URL = conf.getProperty("jdbc.url");
+//        USERNAME = conf.getProperty("jdbc.username");
+//        PASSWORD = conf.getProperty("jdbc.password");
+//
+//        try {
+//            Class.forName(DRIVER);
+//        }catch (ClassNotFoundException e){
+//            LOGGER.error("can not load jdbc driver",e);
+//        }
+//    }
 
 
     public boolean createCustomer(Map<String,Object> fieldMap){
